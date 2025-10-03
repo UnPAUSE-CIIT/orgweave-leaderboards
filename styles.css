@@ -24,3 +24,8 @@ h3 {
   font-family: title;
   transform: skewX(-10deg);
 }
+
+:fullscreen,
+::backdrop {
+  background-color: var(--primary);
+}

@@ -34,6 +34,13 @@ document.addEventListener("keydown", function (e) {
     }
   }
 
+  if (e.key == "f") {
+    const fs = confirm("go fullscreen?");
+    if (fs) {
+      document.querySelector("body").requestFullscreen();
+    }
+  }
+
   if (e.key >= "0" && e.key <= "9") {
     const place = parseInt(e.key);
     if (place == 0) {
