@@ -42,10 +42,11 @@ document.addEventListener("keydown", function (e) {
   }
 
   if (e.key >= "0" && e.key <= "9") {
-    const place = parseInt(e.key);
+    let place = parseInt(e.key);
     if (place == 0) {
       place = 10;
     }
+
     const name = (prompt(`Enter name for ${place}th placer`) ?? "").trim();
 
     const existing = leaderboards.indexOf(name);
