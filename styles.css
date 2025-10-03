@@ -1,0 +1,26 @@
+@font-face {
+  font-family: title;
+  src: url(DelaGothicOne-Regular.ttf);
+}
+
+@font-face {
+  font-family: body;
+  src: url(Lexend-VariableFont_wght.ttf);
+}
+
+:root {
+  --primary: #4a24f0;
+}
+
+body {
+  background-color: var(--primary);
+  font-family: body;
+  color: white;
+}
+
+h1,
+h2,
+h3 {
+  font-family: title;
+  transform: skewX(-10deg);
+}
