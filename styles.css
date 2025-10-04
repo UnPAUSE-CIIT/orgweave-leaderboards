@@ -1,11 +1,11 @@
 @font-face {
   font-family: title;
-  src: url(DelaGothicOne-Regular.ttf);
+  src: url(assets/DelaGothicOne-Regular.ttf);
 }
 
 @font-face {
   font-family: body;
-  src: url(Lexend-VariableFont_wght.ttf);
+  src: url(assets/Lexend-VariableFont_wght.ttf);
 }
 
 :root {
