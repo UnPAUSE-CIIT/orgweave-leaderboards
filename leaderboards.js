@@ -23,8 +23,6 @@ function updateList() {
   localStorage.setItem("leaderboards", JSON.stringify(leaderboards));
 }
 
-document.querySelector("#time").textContent = new Date().toString();
-
 document.addEventListener("keydown", function (e) {
   if (e.key == "c") {
     const clear = confirm("clear leaderboard for today?");
@@ -63,3 +61,10 @@ document.addEventListener("keydown", function (e) {
     updateList();
   }
 });
+
+function updateTime() {
+  document.querySelector("#time").textContent = new Date().toString();
+
+  setInterval(updateTime, 1000);
+}
+updateTime();
