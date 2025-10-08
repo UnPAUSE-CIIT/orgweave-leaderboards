@@ -9,7 +9,7 @@ window.addEventListener("load", function () {
   }
 });
 
-function updateList() {
+function updateList(save = true) {
   const content = document.querySelector("#content");
   content.innerHTML = "";
   for (const [i, entry] of leaderboards.entries()) {
@@ -20,7 +20,19 @@ function updateList() {
 	`;
   }
 
-  localStorage.setItem("leaderboards", JSON.stringify(leaderboards));
+  if (!save) {
+    return;
+  }
+
+  const lastSave = localStorage.getItem("last_save");
+  const currDate = new Date().getDate();
+  if (lastSave !== currDate) {
+    const past = localStorage.getItem("leaderboards");
+    localStorage.setItem(currDate, past);
+  } else {
+    localStorage.setItem("leaderboards", JSON.stringify(leaderboards));
+    localStorage.setItem("last_save", currDate);
+  }
 }
 
 document.addEventListener("keydown", function (e) {
@@ -46,6 +58,12 @@ document.addEventListener("keydown", function (e) {
     }
 
     const name = (prompt(`Enter name for ${place}th placer`) ?? "").trim();
+
+    if (name === "clear") {
+      leaderboards[place] = "";
+      updateList(false);
+      return;
+    }
 
     const existing = leaderboards.indexOf(name);
     if (existing !== -1) {
